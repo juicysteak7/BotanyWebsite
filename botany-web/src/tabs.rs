@@ -1,7 +1,7 @@
 use yew::prelude::*;
 use crate::{ Home, Store, PlantData, Cart };
 
-enum Tab {
+pub enum Tab {
     Home,
     Store,
     About,
@@ -110,7 +110,8 @@ impl Component for Tabs {
                             Tab::Store => html! { <Store plants={plant_data}
                                                     add_to_cart={link.callback(|plant| Msg::AddItem(plant))}/> },
                             Tab::Cart => html! { <Cart list={self.list.clone()}
-                                                    remove_from_cart={link.callback(|plant| Msg::RemoveItem(plant))}/> }
+                                                    remove_from_cart={link.callback(|plant| Msg::RemoveItem(plant))}
+                                                    browse_button={link.callback(|tab| Msg::ChangeTab(tab))}/> }
                         }
                     }
                 </div>

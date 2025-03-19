@@ -1,13 +1,18 @@
 /* Navbar Styling */
 .nav {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2c5e1a; /* Dark green background */
+    background: url("https://vastphotos.com/files/uploads/photos/11538/forest-sunrise-panorama-l.jpg?v=20241126092254") no-repeat center center;
+    background-size: cover;
+    height: 50px;  /* Adjust based on preference */
     padding: 15px 20px;
     border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     margin: 10px;
+    overflow: hidden;
+    color: #fff;  /* Ensure text stands out on the dark background */
 }
 
 .nav-left {
@@ -31,26 +36,39 @@
     padding: 10px 15px;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
+    font-weight: bold;
 }
 
 .nav-item:hover {
-    background-color: #388e3c; /* Darker green hover effect */
+    background-color: rgba(0, 0, 0, 0.3); /* Slight dark overlay on hover */
     cursor: pointer;
 }
 
-/* Cart Button - Earthy Brown */
+.nav-item:active {
+    background-color: #1b3d10; /* Even darker green for press effect */
+    transform: scale(0.95);
+}
+
+/* Cart Button in Navbar */
 .cart {
-    background-color:  #A68F7D; /* Lighter brown */
-    font-weight: bold;
-    padding: 8px 14px;
-    border-radius: 8px;
+    background-color: #6A8D3D;  /* Muted olive green to blend with natural theme */
     color: white;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 8px;
     transition: background-color 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);  /* Soft shadow for depth */
 }
 
 .cart:hover {
-    background-color: #6D4C41; /* Slightly darker brown */
-    cursor: pointer;
+    background-color: #4F6B2B;  /* Darker green for hover effect */
+}
+
+.cart:active {
+    background-color: #1b3d10; /* Even darker green for press effect */
+    transform: scale(0.95);
 }
 
 body {
@@ -134,9 +152,142 @@ body {
     cursor: pointer;
     font-weight: bold;
     margin-top: 10px;
-    transition: background-color 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
 }
 
 .add-to-cart:hover {
     background-color: #8c7a61; /* Slightly darker brown */
+}
+
+.add-to-cart:active {
+    background-color: #1b3d10; /* Even darker green for press effect */
+    transform: scale(0.95);
+}
+
+/* Cart Container */
+.cart-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+/* Cart Header */
+.cart-header {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #2c5e1a;
+    margin-bottom: 15px;
+}
+
+/* Individual Cart Items */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f7f3ec; /* Soft beige */
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Cart Item Image */
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+/* Cart Item Details */
+.cart-item h3 {
+    font-size: 1.1em;
+    margin: 0;
+    flex-grow: 1;
+    padding-left: 10px;
+    color: #2c5e1a; /* Dark green */
+}
+
+.cart-item p {
+    margin: 0 10px;
+    font-size: 0.9em;
+    color: #6d4c41; /* Earthy brown */
+}
+
+/* Remove from Cart Button */
+.remove-from-cart {
+    background-color: #a68f7d; /* Lighter brown */
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.remove-from-cart:hover {
+    background-color: #8c7a61; /* Slightly darker brown */
+}
+
+.remove-from-cart:active {
+    background-color: #1b3d10; /* Even darker green for press effect */
+    transform: scale(0.95);
+}
+
+/* Empty Cart Styling */
+.empty-cart {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 40px auto;
+}
+
+.empty-cart img {
+    width: 80px;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.empty-cart h3 {
+    color: #6D4C41; /* Earthy Brown */
+    font-size: 1.4em;
+}
+
+.empty-cart p {
+    color: #4E342E; /* Darker Brown */
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+/* Browse Plants Button */
+.browse-btn {
+    background-color: #2c5e1a; /* Dark Green */
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.browse-btn:hover {
+    background-color: #388e3c; /* Lighter Green */
+    transform: scale(1.05); /* Slight pop effect */
+}
+
+.browse-btn:active {
+    background-color: #1b3d10; /* Even darker green for press effect */
+    transform: scale(0.95);
 }
