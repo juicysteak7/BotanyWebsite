@@ -1,8 +1,7 @@
 use yew::prelude::*;
-use std::hash::Hash;
 
 
-#[derive(Properties, PartialEq, Clone)]
+#[derive(Properties, PartialEq, Clone, Debug)]
 pub struct PlantData {
     pub plant_id: u64,
     pub name: String,

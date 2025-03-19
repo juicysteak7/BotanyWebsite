@@ -1,7 +1,5 @@
-use std::collections::HashMap;
-
 use yew::prelude::*;
-use crate::{ Home, Store, PlantData, Cart, CartMsg };
+use crate::{ Home, Store, PlantData, Cart };
 
 enum Tab {
     Home,
@@ -18,6 +16,7 @@ pub struct Tabs {
 pub enum Msg {
     ChangeTab(Tab),
     AddItem(PlantData),
+    RemoveItem(PlantData),
 }
 
 impl Component for Tabs {
@@ -45,6 +44,23 @@ impl Component for Tabs {
                 if !found {
                     self.list.push((item,1));
                 }
+                true
+            }
+            Msg::RemoveItem(item) => {
+                let mut i = 0;
+                let mut index_to_remove = None;
+                for (plant, val) in self.list.iter_mut() {
+                    if plant.plant_id == item.plant_id && *val > 1 {
+                        *val -= 1;
+                    } else if plant.plant_id == item.plant_id{
+                        index_to_remove = Some(i);
+                    }
+                    i += 1;
+                }
+                if let Some(i) = index_to_remove {
+                    self.list.remove(i);
+                }
+                log::info!("list: {:?}", self.list.clone());
                 true
             }
         }
@@ -93,7 +109,8 @@ impl Component for Tabs {
                             Tab::Contact => html! { <p>{ "Contact us at..." }</p> },
                             Tab::Store => html! { <Store plants={plant_data}
                                                     add_to_cart={link.callback(|plant| Msg::AddItem(plant))}/> },
-                            Tab::Cart => html! { <Cart list={self.list.clone()}/> }
+                            Tab::Cart => html! { <Cart list={self.list.clone()}
+                                                    remove_from_cart={link.callback(|plant| Msg::RemoveItem(plant))}/> }
                         }
                     }
                 </div>
